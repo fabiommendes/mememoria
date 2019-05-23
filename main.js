@@ -93,4 +93,11 @@ $(() => {
 function copyList(lst){
   var novaLista = [];
   novaLista = lst.slice(0,lst.length)
+  return novaLista;
+}
+
+
+function sample(lst,n){
+    let res = [];
+
 }
