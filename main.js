@@ -27,15 +27,12 @@ function copyList(lst) {
 
 function fat(n){
         
-        if ((valor == 0) || (valor == 1) ) {
-        return 1;
-       }
-        else {
-        var acumula = 1;
-        for(x=valor;x>1;x--) {
-          acumula = acumula * x;
+        if (n == 0 || n == 1) {
+            return 1;
         }
-        return acumula;
+        
+        else {
+        return n * fat(n-1);
       } 
   }
 
