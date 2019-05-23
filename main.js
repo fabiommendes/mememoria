@@ -2,7 +2,7 @@
  * Retorna lista na ordem aleatória.
  */
 function shuffle(lst){
-    let res = [],
+    let res = [];
         indices = [];
     
     while (res.length < lst.length) {
@@ -16,6 +16,8 @@ function shuffle(lst){
     return res;    
 }
 
+
+
 function randint(a, b) {
     return (Math.random() * (b + 1 - a) + a) | 0;
 }
@@ -27,6 +29,13 @@ function sample(lst, n){
     return lst;
 }
 
+function copyList(lst) {
+    return [...lst];
+}
+
+function maximo(lst) {
+    Math.max.apply(null,lst);
+}
 
 
 
@@ -36,8 +45,8 @@ function sample(lst, n){
 $(() => {
     let cartoes = $('.cartao'),
         aleatorio = shuffle([
-            '01', '02', '03', '04', '05', '06',
-            '01', '02', '03', '04', '05', '06',
+            '01', '02', '03', '04', '05', '06','07','10',
+            '01', '02', '03', '04', '05', '06','07','10',
         ]);
 
     for (let i=0; i < cartoes.length; i++) {
@@ -82,6 +91,7 @@ $(() => {
                     selecionada = null;
                 }, 1000);
             }
+            
             
         });
 });
