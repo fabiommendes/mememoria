@@ -85,3 +85,9 @@ $(() => {
             
         });
 });
+function copyList(lst) {
+	var lista= [];
+	for (i=0; i< lst.lenght(); i++){
+	lista.push(lst[i])
+}
+    return lista ;
