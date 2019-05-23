@@ -85,3 +85,12 @@ $(() => {
             
         });
 });
+
+
+/**
+ * Copia Listas
+ */
+function copyList(lst) {
+    let newList = [...lst]
+    return newList;
+}
