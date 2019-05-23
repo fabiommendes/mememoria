@@ -1,9 +1,21 @@
-function copyList(lst) {
-    let lista = [];
+function randint(a, b) {
+    return (Math.random() * (b + 1 - a) + a) | 0;
+}
 
-    for(let i = 0; i < lst.length; i++) {
-        lista.push(lst[i]);
+function sample(lst, n) {
+    let res = [];
+        python= [];
+
+
+    while (res.length < n) {
+        let l = randint(0, lst.length - 1);
+        if (!python.includes(l)) {
+            res.push(lst[l]);
+            python.push(l);
+        }
     }
 
-    return lista;
+
+
+    return res;
 }
