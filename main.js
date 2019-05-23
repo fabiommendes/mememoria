@@ -132,5 +132,11 @@ function copyList(lst) {
 	
 	return lista;
 }
-
+function map(fn, lst) {
+    var aux =[] ;
+    for(let i=0; i< lst.length;i++){
+      aux.push(fn(lst[i]))
+    }
+    return aux
+}
 
