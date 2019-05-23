@@ -93,7 +93,6 @@ $(() => {
                 if(jogador1+jogador2 === 6) {
                     alert(`Jogador1 ${jogador1} x ${jogador2} Jogador2`)
                 }
-                vez = !vez;
                 selecionada = null;
 
             }
