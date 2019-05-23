@@ -62,15 +62,6 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
-
-
-/**
- * Controle de pontos dos jogadores
- */
-
-let jogador1 = 0;
-let jogador2 = 0;
-let vez = true;
  
 $(() => {
     $(".cartao")
@@ -89,29 +80,25 @@ $(() => {
             else if ($(selecionada).attr('src') === 
                      $(clicada).attr('src')) {
                 $(clicada).toggleClass('virado');
+                
+                if($(clicada).attr('src') === "imgs/01.jpg"){
+                 $(selecionada).attr('src', "imgs/abestado.jpg");
+                $(clicada).attr('src', "imgs/abestado.jpg");}
                 $(clicada).toggleClass('bloqueada');
+                
+                
+               
                 $(selecionada).toggleClass('bloqueada');
+
                 $(clicada).off('click');
                 $(selecionada).off('click');
-                if (vez) {
-                    jogador1+=1;
-                }
-                else {
-                    jogador2+=1;
-                }
-
-                if(jogador1+jogador2 === 6) {
-                    alert(`Jogador1 ${jogador1} x ${jogador2} Jogador2`)
-                }
                 selecionada = null;
-
             }
             
             else if (selecionada !== null) {
                 $(clicada).toggleClass('virado');
                 let selecionadaCopia = selecionada;
                 selecionada = null;
-                vez = !vez;
                 setTimeout(() => {
                     $(clicada).toggleClass('virado');
                     $(selecionadaCopia).toggleClass('virado');

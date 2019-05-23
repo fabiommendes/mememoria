@@ -31,5 +31,4 @@
 
 .cartao.bloqueada {
     filter: grayscale(70%);
-    pointer-events: none;
 }
