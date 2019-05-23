@@ -69,8 +69,9 @@ $(() => {
             
             else if ($(selecionada).attr('src') === 
                      $(clicada).attr('src')) {
-                $(selecionada).hide(500);
-                $(clicada).hide(500);
+                $(clicada).toggleClass('virado');
+                $(selecionada).toggleClass('parado');
+                $(clicada).toggleClass('parado');
                 selecionada = null;
             }
             

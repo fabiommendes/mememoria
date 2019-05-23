@@ -28,3 +28,8 @@
 .cartao.virado:hover {
     filter: grayscale(0) contrast(0) brightness(50%);
 }
+
+.cartao.parado {
+    pointer-events: none;
+
+}
