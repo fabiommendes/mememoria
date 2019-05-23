@@ -1,10 +1,20 @@
+// Amostragem
+function sample(lst, n){
+    let res = [];
+    // Adiciona elementos em res
+    for(let i=0;i<n;i++){
+      let j = Math.random() * (lst.lenght - 1) | 0;
+      res.push(lst[j]);
+    }
+    return res;
+}
 /**
  * Retorna lista na ordem aleatória.
  */
 function shuffle(lst){
     let res = [],
         indices = [];
-    
+
     while (res.length < lst.length) {
         let idx = randint(0, lst.length - 1);
         if (!indices.includes(idx)) {
@@ -12,8 +22,8 @@ function shuffle(lst){
             indices.push(idx);
         }
     }
-    
-    return res;    
+
+    return res;
 }
 
 function randint(a, b) {
@@ -52,28 +62,28 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
- 
+
 $(() => {
     $(".cartao")
         .on("click", ev => {
             let clicada = ev.target;
-            
+
             if (selecionada === null) {
                 $(clicada).toggleClass('virado');
                 selecionada = clicada;
-            } 
-            
+            }
+
             else if (clicada === selecionada) {
                 alert('Você deve clicar em outra imagem!');
             }
-            
-            else if ($(selecionada).attr('src') === 
+
+            else if ($(selecionada).attr('src') ===
                      $(clicada).attr('src')) {
                 $(selecionada).hide(500);
                 $(clicada).hide(500);
                 selecionada = null;
             }
-            
+
             else if (selecionada !== null) {
                 $(clicada).toggleClass('virado');
                 setTimeout(() => {
@@ -82,6 +92,6 @@ $(() => {
                     selecionada = null;
                 }, 1000);
             }
-            
+
         });
 });
