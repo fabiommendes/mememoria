@@ -23,10 +23,20 @@ function randint(a, b) {
 /**
  * Retorna n exemplos a partir da lista sem reposição.
  */
-function sample(lst, n){
-    return lst;
-}
+function sample(lst, n) {
+    let res = [];
+        python= [];
 
+    while (res.length < n) {
+        let l = randint(0, lst.length - 1);
+        if (!python.includes(l)) {
+            res.push(lst[l]);
+            python.push(l);
+        }
+    }
+
+    return res;
+} 
 
 
 
@@ -52,6 +62,15 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
+
+
+/**
+ * Controle de pontos dos jogadores
+ */
+
+let jogador1 = 0;
+let jogador2 = 0;
+let vez = true;
  
 $(() => {
     $(".cartao")
@@ -69,17 +88,35 @@ $(() => {
             
             else if ($(selecionada).attr('src') === 
                      $(clicada).attr('src')) {
-                $(selecionada).attr('class', 'bloqueada');
-                $(clicada).attr('class', 'bloqueada');
-                 selecionada = null;
+
+                $(clicada).toggleClass('virado');
+                $(clicada).toggleClass('bloqueada');
+                $(selecionada).toggleClass('bloqueada');
+                $(clicada).off('click');
+                $(selecionada).off('click');
+                if (vez) {
+                    jogador1+=1;
+                }
+                else {
+                    jogador2+=1;
+                }
+
+                if(jogador1+jogador2 === 6) {
+                    alert(`Jogador1 ${jogador1} x ${jogador2} Jogador2`)
+                }
+                selecionada = null;
+
+
             }
             
             else if (selecionada !== null) {
                 $(clicada).toggleClass('virado');
+                let selecionadaCopia = selecionada;
+                selecionada = null;
+                vez = !vez;
                 setTimeout(() => {
                     $(clicada).toggleClass('virado');
-                    $(selecionada).toggleClass('virado');
-                    selecionada = null;
+                    $(selecionadaCopia).toggleClass('virado');
                 }, 1000);
             }
             
