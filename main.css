@@ -29,7 +29,4 @@
     filter: grayscale(0) contrast(0) brightness(50%);
 }
 
-.cartao.bloqueada {
-    filter: grayscale(70%);
-    pointer-events: none;
-}
+
