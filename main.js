@@ -1,10 +1,6 @@
 /**
  * Retorna lista na ordem aleatória.
  */
-
- copyList([1,2,3]);
-
-
 function shuffle(lst){
     let res = [],
         indices = [];
@@ -73,31 +69,24 @@ $(() => {
             
             else if ($(selecionada).attr('src') === 
                      $(clicada).attr('src')) {
-                $(selecionada).hide(500);
-                $(clicada).hide(500);
+                $(clicada).toggleClass('virado');
+                $(clicada).toggleClass('bloqueada');
+                $(selecionada).toggleClass('bloqueada');
+
+                $(clicada).off('click');
+                $(selecionada).off('click');
                 selecionada = null;
             }
             
             else if (selecionada !== null) {
                 $(clicada).toggleClass('virado');
+                let selecionadaCopia = selecionada;
+                selecionada = null;
                 setTimeout(() => {
                     $(clicada).toggleClass('virado');
-                    $(selecionada).toggleClass('virado');
-                    selecionada = null;
+                    $(selecionadaCopia).toggleClass('virado');
                 }, 1000);
             }
             
         });
 });
-
-function copyList(lst){
-  var novaLista = [];
-  novaLista = lst.slice(0,lst.length)
-  return novaLista;
-}
-
-
-function sample(lst,n){
-    let res = [];
-
-}
