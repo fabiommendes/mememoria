@@ -1,10 +1,6 @@
 /**
  * Retorna lista na ordem aleatória.
  */
-
- copyList([1,2,3]);
-
-
 function shuffle(lst){
     let res = [],
         indices = [];
@@ -61,8 +57,7 @@ $(() => {
     $(".cartao")
         .on("click", ev => {
             let clicada = ev.target;
-            
-            if (selecionada === null) {
+            if (selecionada === null && $(clicada).attr('class') != "cartao virado bloqueado") {
                 $(clicada).toggleClass('virado');
                 selecionada = clicada;
             } 
@@ -71,14 +66,18 @@ $(() => {
                 alert('Você deve clicar em outra imagem!');
             }
             
-            else if ($(selecionada).attr('src') === 
-                     $(clicada).attr('src')) {
-                $(selecionada).hide(500);
-                $(clicada).hide(500);
-                selecionada = null;
+            else if ($(selecionada).attr('src') === $(clicada).attr('src')  && $(clicada).attr('class') != "cartao virado bloqueado") {
+                   // $(selecionada).hide(500);
+                    //$(clicada).hide(500);
+                        $(clicada).toggleClass('bloqueado')
+                          $(selecionada).toggleClass('virado')  
+                        $(selecionada).toggleClass('bloqueado')  
+                        console.log(clicada)
+                        console.log(selecionada)
+                        selecionada = null;
             }
             
-            else if (selecionada !== null) {
+            else if (selecionada !== null && $(clicada).attr('class') != "cartao virado bloqueado") {
                 $(clicada).toggleClass('virado');
                 setTimeout(() => {
                     $(clicada).toggleClass('virado');
@@ -89,15 +88,3 @@ $(() => {
             
         });
 });
-
-function copyList(lst){
-  var novaLista = [];
-  novaLista = lst.slice(0,lst.length)
-  return novaLista;
-}
-
-
-function sample(lst,n){
-    let res = [];
-
-}

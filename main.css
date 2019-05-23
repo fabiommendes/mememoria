@@ -28,3 +28,8 @@
 .cartao.virado:hover {
     filter: grayscale(0) contrast(0) brightness(50%);
 }
+.cartao.virado.bloqueado{
+    filter: grayscale(0) contrast(0) brightness(60%);
+     transform: matrix(1.1, 0.3, 
+                      -0.2, 0.9, 0, 0); 
+}
