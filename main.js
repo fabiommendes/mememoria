@@ -69,9 +69,9 @@ $(() => {
             
             else if ($(selecionada).attr('src') === 
                      $(clicada).attr('src')) {
-                $(selecionada).hide(500);
-                $(clicada).hide(500);
-                selecionada = null;
+                $(selecionada).attr('class', 'bloqueada');
+                $(clicada).attr('class', 'bloqueada');
+                 selecionada = null;
             }
             
             else if (selecionada !== null) {
@@ -95,3 +95,4 @@ function copyList(lst) {
 	
 	return lista;
 }
+
