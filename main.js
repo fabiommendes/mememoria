@@ -1,6 +1,9 @@
 /**
  * Retorna lista na ordem aleatória.
  */
+function scoreGame(){
+
+}
 function shuffle(lst){
     let res = [],
         indices = [];
@@ -65,14 +68,13 @@ $(() => {
             
             else if (clicada === selecionada) {
                 alert('Você deve clicar em outra imagem!');
-            }
-            
-            else if ($(selecionada).attr('src') === 
-                     $(clicada).attr('src')) {
-                $(selecionada).hide(500);
-                $(clicada).hide(500);
-                selecionada = null;
-            }
+            } 
+            else if ($(selecionada).attr('src') ===
+                $(clicada).attr('src')) {
+                $(selecionada).toggleClass('virada');
+                $(clicada).toggleClass('virada');
+                slecionada = null;
+            }    
             
             else if (selecionada !== null) {
                 $(clicada).toggleClass('virado');
