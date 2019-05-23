@@ -16,19 +16,28 @@ function shuffle(lst){
     return res;    
 }
 
+
 function randint(a, b) {
     return (Math.random() * (b + 1 - a) + a) | 0;
 }
 
-/**
- * Retorna n exemplos a partir da lista sem reposição.
- */
-function sample(lst, n){
-    return lst;
+function copyList(lst) {
+    return  [...lst];
 }
 
-
-
+function fat(n){
+        
+        if ((valor == 0) || (valor == 1) ) {
+        return 1;
+       }
+        else {
+        var acumula = 1;
+        for(x=valor;x>1;x--) {
+          acumula = acumula * x;
+        }
+        return acumula;
+      } 
+  }
 
 /**
  * Inicializa as cartas em ordem aleatória
@@ -46,6 +55,12 @@ $(() => {
         $(cartao).attr('src', img);
     }
 });
+
+function copyList(lst) {
+    return  [...lst];
+}
+
+
 
 
 /**
@@ -68,11 +83,11 @@ $(() => {
             }
             
             else if ($(selecionada).attr('src') === 
-                     $(clicada).attr('src')) {
-                $(clicada).toggleClass('virado');
-                $(selecionada).toggleClass('parado');
-                $(clicada).toggleClass('parado');
-                selecionada = null;
+            $(clicada).attr('src')) {
+       $(clicada).toggleClass('virado');
+       $(selecionada).toggleClass('parado');
+       $(clicada).toggleClass('parado');
+       selecionada = null;
             }
             
             else if (selecionada !== null) {
@@ -86,3 +101,4 @@ $(() => {
             
         });
 });
+
