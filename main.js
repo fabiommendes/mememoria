@@ -38,7 +38,13 @@ function sample(lst, n) {
     return res;
 } 
 
-
+function maximo (lst) {
+	let maximo = lst.reduce(function(a, b){
+		return Math.max(a, b);
+		})
+		
+		return maximo;
+}
 
 /**
  * Inicializa as cartas em ordem aleatória
