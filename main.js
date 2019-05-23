@@ -56,10 +56,16 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
- 
+player1 = { pontos: 0 }
+
+player2 = { pontos: 0 }
+
+jogador = true;     // Boolean para vez do jogador. True = player 1, false = player 2
+
 $(() => {
     $(".cartao")
         .on("click", ev => {
+            var listaVirado = $('.virado');
             let clicada = ev.target;
             
             if (selecionada === null) {
@@ -76,6 +82,7 @@ $(() => {
                 $(clicada).toggleClass('virado');
                 $(selecionada).toggleClass('parado');
                 $(clicada).toggleClass('parado');
+                jogador ? player1.pontos++ : player2.pontos++;
                 selecionada = null;
             }
             
@@ -88,6 +95,11 @@ $(() => {
                 }, 1000);
             }
             
+
+            if(listaVirado.length === 1)
+                alert('Fim do jogo!\nPlayer 1: ' + player1.pontos + '\nPlayer 2: ' + player2.pontos);
+
+            jogador = !jogador;
         });
 });
 
