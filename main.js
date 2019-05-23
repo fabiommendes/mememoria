@@ -1,6 +1,10 @@
 /**
  * Retorna lista na ordem aleatória.
  */
+
+ copyList([1,2,3]);
+
+
 function shuffle(lst){
     let res = [],
         indices = [];
@@ -85,3 +89,15 @@ $(() => {
             
         });
 });
+
+function copyList(lst){
+  var novaLista = [];
+  novaLista = lst.slice(0,lst.length)
+  return novaLista;
+}
+
+
+function sample(lst,n){
+    let res = [];
+
+}
