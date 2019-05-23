@@ -1,3 +1,6 @@
+let pontos1 = 0;
+let pontos2 = 0;
+let jogador = true;
 /**
  * Retorna lista na ordem aleatória.
  */
@@ -52,7 +55,8 @@ $(() => {
  * Controle clique nas cartas
  */
 let selecionada = null;
- 
+let qntCartas = 0;
+
 $(() => {
     $(".cartao")
         .on("click", ev => {
@@ -72,6 +76,18 @@ $(() => {
                 $(selecionada).hide(500);
                 $(clicada).hide(500);
                 selecionada = null;
+                if (jogador == true){
+                    pontos1 = pontos1 + 1;
+                    jogador = !jogador;
+                }
+                else if(jogador == false){
+                    pontos2 = pontos2 + 1;
+                    jogador = !jogador;
+                }
+                console.log(pontos1);
+                console.log(pontos2);
+                qntCartas += 2;
+                console.log(qntCartas);
             }
             
             else if (selecionada !== null) {
@@ -81,7 +97,13 @@ $(() => {
                     $(selecionada).toggleClass('virado');
                     selecionada = null;
                 }, 1000);
+                jogador = !jogador;
+            }
+
+            if (qntCartas == 12){
+                alert("Jogador 1: " + pontos1 + "Jogador 2: " + pontos2);
             }
             
         });
-});
+
+    });
